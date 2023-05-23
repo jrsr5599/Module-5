@@ -1,6 +1,6 @@
-let currentDate = dayjs(); 
+let presentDate = dayjs(); 
 let displayDate = $("#currentDay");
-displayDate.text(currentDate.format("MMM D, YYYY")); 
+displayDate.text(presentDate.format("MMM D, YYYY")); 
 
 
 
