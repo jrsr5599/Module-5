@@ -2,24 +2,17 @@ let presentDate = dayjs();
 let displayDate = $("#currentDay");
 displayDate.text(presentDate.format("MMM D, YYYY")); 
 
-
-
 $(document).ready(function () {
   let saveButtons = $(".saveBtn");
  
   saveButtons.on("click", function (event) {
-  
     let saveButton = $(this);
-  
-    let timeBlock = saveButton.closest(".time-block");
-  
-    let id = timeBlock.attr("id");
-    
+    let timeBlock = saveButton.closest(".time-block"); 
+    let id = timeBlock.attr("id");   
     let description = timeBlock.find(".description").val();
     // Save event in local storage
     localStorage.setItem(id, JSON.stringify(description));
   });
-
   
   $('.time-block').each(function() {
     let id = $(this).attr("id");
@@ -29,13 +22,11 @@ $(document).ready(function () {
     }
   });
 
-
 // Setting the classes to past, present and future
   function trackTime() {
     let currentHour = new Date().getHours();
     let timeBlocks = $(".time-block");
    
-
     timeBlocks.each(function () {
       let time = $(this).attr("id").split("hour")[1];
       if (currentHour == time) {
